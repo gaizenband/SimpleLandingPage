@@ -9,11 +9,11 @@
     <script src="./js/jquery-3.5.1.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/script.js"></script>
-    
     <title>Template</title>
 </head>
 <body>
     <header class="header">
+        <div class="bg"></div>
         <section class="header_top container">
             <a href="#" class="header_logo">
                 <svg class="gold"
@@ -212,12 +212,15 @@
             <button class="start">Load More</button>
         </section>
         <section class="presentation">
-            <button><img src="./img/presentation/arrow.svg" alt="play" class="play"> </button>
-            <h5>Waxom Video Presentation</h5>
-            <p>Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius, qui sequitur mutationem consuetudium.</p>
-            <p>
-                <time>03:26</time>
-            </p>
+            <div class="video_materials">
+                <button class="playBtn"><img src="./img/presentation/arrow.svg" alt="play" class="play"> </button>
+                <h5>Waxom Video Presentation</h5>
+                <p>Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius, qui sequitur mutationem consuetudium.</p>
+                <p>
+                    <time>03:26</time>
+                </p>
+            </div>
+            <video muted="muted" class="video" src="./video/dolphins.mp4" poster="./img/presentation/Background.png"></video>
         </section>
         <section class="devices">
             <div class="container devices_container">

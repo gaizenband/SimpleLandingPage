@@ -25,6 +25,18 @@
     }
 }
 
+@keyframes menuAnim {
+    0% {
+        color: white;
+        border-bottom: 1px solid white;
+    }
+
+    100% {
+        color: orange;
+        border-bottom: 1px solid orange;
+    }
+}
+
 @-webkit-keyframes rotation {
     from {
             -webkit-transform: rotate(0deg);
@@ -50,13 +62,24 @@ a:hover {
     margin: 0 auto;
 }
 
-.header {
+header {
     height: 100vh;
     width: 100%;
-    background: url(../img/header/headerBG.png) no-repeat;
-    background-size: cover;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    position: relative;
+
+    .bg {
+        background: url(../img/header/headerBG.png) no-repeat center center;
+        background-size: cover;
+        position: absolute;
+        width: 110%;
+        height: 110%;
+        transition: all 0.5s ease-out;
+        top: -2.6%;
+        left: -1.5%;
+    }
 
     .header_top {
         display: flex;
@@ -64,17 +87,19 @@ a:hover {
         justify-content: space-between;
         padding-top: 5px;
         margin-bottom: 50px;
-        
+        z-index: 1;
 
         .header_logo {
             display: flex;
             color: white;
             fill: white;
+            transition: all 1s;
         }
 
         .header_logo:hover {
             fill: orange;
             color: orange;
+            transition: all 1s;
         }
 
         .menu {
@@ -87,8 +112,7 @@ a:hover {
                 }
 
                 a:hover {
-                    color: orange;
-                    border-bottom: 1px solid orange;
+                    animation: menuAnim linear 0.5s 1 forwards;
                 }
     
                 li:not(:last-child) {
@@ -139,12 +163,14 @@ a:hover {
             color: #ffffff;
             font-size: 10px;
             font-weight: 800;
+            transition: all 1s;
         }
 
         .start:hover {
             background-color: #fff;
             color: #998675;
             box-shadow: inset 0 -3px 0 #998675;
+            transition: all 1s;
         }
 
         .carousel-indicators li {
@@ -183,11 +209,14 @@ a:hover {
     }
 
     .service:hover {
-        fill: red;
+        fill: gold;
+        transition: all 0.5s;
     }
 
     .service:hover::after {
-        background-color: red;
+        background-color: gold;
+        padding: 0 80px;
+        transition: all 0.3s;
     }
 }
 
@@ -246,12 +275,14 @@ a:hover {
             font-size: 10px;
             font-weight: 800;
             height: 60%;
+            transition: all 1s;
         }
 
         .start:hover {
             background-color: #fff;
             color: #998675;
             box-shadow: inset 0 -3px 0 #998675;
+            transition: all 1s;
         }
     
 }
@@ -278,10 +309,12 @@ a:hover {
             border-radius: 3px;
             border: 1px solid #ebebeb;
             background-color: white;
+            transition: all 0.5s;
         }
 
         button:hover {
             background-color: gold;
+            transition: all 0.5s;
         }
     }
 
@@ -364,44 +397,73 @@ a:hover {
         font-weight: 800;
         height: 60%;
         margin-top: 40px;
+        transition: all 0.5s;
     }
 
     .start:hover {
         background-color: #fff;
         color: #998675;
         box-shadow: inset 0 -3px 0 #998675;
+        transition: all 0.5s;
     }
 }
 
 .presentation {
     height: 60vh;
-    background: no-repeat url(../img/presentation/Background.png);
-    background-size: 100% 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
     align-items: center;
+    justify-content: center;
+    background-size: 100% 100%;
+    position: relative;
 
-    button {
-        background: transparent;
-        border: none;
-        margin-bottom: 10px;
+    .video_materials {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        position: absolute;
+        z-index: 1;
+
+
+        button {
+            background: transparent;
+            border: none;
+            margin-bottom: 10px;
+        }
+    
+        .play:hover {
+            animation: rotation 2s infinite linear;
+            -webkit-animation: rotation 2s infinite linear;
+            border: none;
+            outline: none;
+        }
+
+        .play:active {
+            border: none;
+            outline: none;
+        }
+
+        button:hover {
+            border: none;
+            outline: none;
+        }
+
+        h5 {
+            color: #ffffff;
+            font-size: 30px;
+        }
+    
+        p {
+            color: #fff;
+            width: 50%;
+        }
     }
 
-    .play:hover {
-        animation: rotation 2s infinite linear;
-        -webkit-animation: rotation 2s infinite linear;
-    }
-
-    h5 {
-        color: #ffffff;
-        font-size: 30px;
-    }
-
-    p {
-        color: #fff;
-        width: 50%;
+    video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }
 
@@ -506,6 +568,7 @@ a:hover {
             .recent_txt {
                 border: 2px solid #f8f8f8;
                 padding: 10px;
+                transition: all 0.5s;
 
                 p, a {
                     font-size: 14px;
@@ -514,6 +577,7 @@ a:hover {
                 a {
                     text-decoration: none;
                     color: #c7b299;
+                    transition: all 0.5s;
                 }
 
                 a:after {
@@ -523,6 +587,7 @@ a:hover {
 
                 a:hover {
                     color: gold;
+                    transition: all 0.5s;
                 }
             }
             
@@ -533,6 +598,7 @@ a:hover {
                 background-color: #362f2d;
                 color: #ffffff;
                 border: 2px solid #362f2d;
+                transition: all 0.5s;
             }  
         }
     }
@@ -593,6 +659,7 @@ a:hover {
     
                 a {
                     color: #d1d1d1;
+                    transition: all 0.5s;
                 }
 
                 a:after {
@@ -602,6 +669,7 @@ a:hover {
 
                 a:hover {
                     color: gold;
+                    transition: all 0.5s;
                 }
             }
 

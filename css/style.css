@@ -25,6 +25,28 @@
   }
 }
 
+@-webkit-keyframes menuAnim {
+  0% {
+    color: white;
+    border-bottom: 1px solid white;
+  }
+  100% {
+    color: orange;
+    border-bottom: 1px solid orange;
+  }
+}
+
+@keyframes menuAnim {
+  0% {
+    color: white;
+    border-bottom: 1px solid white;
+  }
+  100% {
+    color: orange;
+    border-bottom: 1px solid orange;
+  }
+}
+
 @-webkit-keyframes rotation {
   from {
     -webkit-transform: rotate(0deg);
@@ -50,11 +72,9 @@ a:hover {
   margin: 0 auto;
 }
 
-.header {
+header {
   height: 100vh;
   width: 100%;
-  background: url(../img/header/headerBG.png) no-repeat;
-  background-size: cover;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -62,9 +82,23 @@ a:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  overflow: hidden;
+  position: relative;
 }
 
-.header .header_top {
+header .bg {
+  background: url(../img/header/headerBG.png) no-repeat center center;
+  background-size: cover;
+  position: absolute;
+  width: 110%;
+  height: 110%;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+  top: -2.6%;
+  left: -1.5%;
+}
+
+header .header_top {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -76,74 +110,79 @@ a:hover {
           justify-content: space-between;
   padding-top: 5px;
   margin-bottom: 50px;
+  z-index: 1;
 }
 
-.header .header_top .header_logo {
+header .header_top .header_logo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   color: white;
   fill: white;
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 
-.header .header_top .header_logo:hover {
+header .header_top .header_logo:hover {
   fill: orange;
   color: orange;
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 
-.header .header_top .menu .menu_list {
+header .header_top .menu .menu_list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: 0;
 }
 
-.header .header_top .menu .menu_list a {
+header .header_top .menu .menu_list a {
   color: white;
 }
 
-.header .header_top .menu .menu_list a:hover {
-  color: orange;
-  border-bottom: 1px solid orange;
+header .header_top .menu .menu_list a:hover {
+  -webkit-animation: menuAnim linear 0.5s 1 forwards;
+          animation: menuAnim linear 0.5s 1 forwards;
 }
 
-.header .header_top .menu .menu_list li:not(:last-child) {
+header .header_top .menu .menu_list li:not(:last-child) {
   margin-right: 30px;
 }
 
-.header .header_top .cart {
+header .header_top .cart {
   margin-right: 20px;
 }
 
-.header .carousel_section {
+header .carousel_section {
   margin-top: 10%;
   text-align: center;
   color: white;
 }
 
-.header .carousel_section .carousel_head {
+header .carousel_section .carousel_head {
   font-size: 40px;
   font-weight: 800;
 }
 
-.header .carousel_section h3, .header .carousel_section h2 {
+header .carousel_section h3, header .carousel_section h2 {
   margin: 0;
 }
 
-.header .carousel_section p {
+header .carousel_section p {
   margin: 0 auto;
   font-size: 16px;
 }
 
-.header .carousel_section .carousel-control-prev {
+header .carousel_section .carousel-control-prev {
   left: -15%;
 }
 
-.header .carousel_section .carousel-control-next {
+header .carousel_section .carousel-control-next {
   right: -15%;
 }
 
-.header .carousel_section .start {
+header .carousel_section .start {
   margin-top: 50px;
   -webkit-box-shadow: inset 0 -3px 0 #736357;
           box-shadow: inset 0 -3px 0 #736357;
@@ -154,16 +193,20 @@ a:hover {
   color: #ffffff;
   font-size: 10px;
   font-weight: 800;
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 
-.header .carousel_section .start:hover {
+header .carousel_section .start:hover {
   background-color: #fff;
   color: #998675;
   -webkit-box-shadow: inset 0 -3px 0 #998675;
           box-shadow: inset 0 -3px 0 #998675;
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 
-.header .carousel_section .carousel-indicators li {
+header .carousel_section .carousel-indicators li {
   border-radius: 100%;
   width: 10px;
   height: 10px;
@@ -211,11 +254,16 @@ a:hover {
 }
 
 .design .service:hover {
-  fill: red;
+  fill: gold;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .design .service:hover::after {
-  background-color: red;
+  background-color: gold;
+  padding: 0 80px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .realization {
@@ -282,6 +330,8 @@ a:hover {
   font-size: 10px;
   font-weight: 800;
   height: 60%;
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 
 .theme .start:hover {
@@ -289,6 +339,8 @@ a:hover {
   color: #998675;
   -webkit-box-shadow: inset 0 -3px 0 #998675;
           box-shadow: inset 0 -3px 0 #998675;
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 
 .lastProjects {
@@ -326,10 +378,14 @@ a:hover {
   border-radius: 3px;
   border: 1px solid #ebebeb;
   background-color: white;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .lastProjects ul button:hover {
   background-color: gold;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .lastProjects ul li:not(:last-child) {
@@ -411,6 +467,8 @@ a:hover {
   font-weight: 800;
   height: 60%;
   margin-top: 40px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .lastProjects .start:hover {
@@ -418,12 +476,26 @@ a:hover {
   color: #998675;
   -webkit-box-shadow: inset 0 -3px 0 #998675;
           box-shadow: inset 0 -3px 0 #998675;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .presentation {
   height: 60vh;
-  background: no-repeat url(../img/presentation/Background.png);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-size: 100% 100%;
+  position: relative;
+}
+
+.presentation .video_materials {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -438,27 +510,48 @@ a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: absolute;
+  z-index: 1;
 }
 
-.presentation button {
+.presentation .video_materials button {
   background: transparent;
   border: none;
   margin-bottom: 10px;
 }
 
-.presentation .play:hover {
+.presentation .video_materials .play:hover {
   animation: rotation 2s infinite linear;
   -webkit-animation: rotation 2s infinite linear;
+  border: none;
+  outline: none;
 }
 
-.presentation h5 {
+.presentation .video_materials .play:active {
+  border: none;
+  outline: none;
+}
+
+.presentation .video_materials button:hover {
+  border: none;
+  outline: none;
+}
+
+.presentation .video_materials h5 {
   color: #ffffff;
   font-size: 30px;
 }
 
-.presentation p {
+.presentation .video_materials p {
   color: #fff;
   width: 50%;
+}
+
+.presentation video {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .devices {
@@ -602,6 +695,8 @@ a:hover {
 .recent .recent_cards .recent_card .recent_txt {
   border: 2px solid #f8f8f8;
   padding: 10px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .recent .recent_cards .recent_card .recent_txt p, .recent .recent_cards .recent_card .recent_txt a {
@@ -611,6 +706,8 @@ a:hover {
 .recent .recent_cards .recent_card .recent_txt a {
   text-decoration: none;
   color: #c7b299;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .recent .recent_cards .recent_card .recent_txt a:after {
@@ -620,12 +717,16 @@ a:hover {
 
 .recent .recent_cards .recent_card .recent_txt a:hover {
   color: gold;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .recent .recent_cards .recent_card:hover .recent_txt {
   background-color: #362f2d;
   color: #ffffff;
   border: 2px solid #362f2d;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .footer {
@@ -694,6 +795,8 @@ a:hover {
 
 .footer .footer_mid .container_footer_mid .article_1 a {
   color: #d1d1d1;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .footer .footer_mid .container_footer_mid .article_1 a:after {
@@ -703,6 +806,8 @@ a:hover {
 
 .footer .footer_mid .container_footer_mid .article_1 a:hover {
   color: gold;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .footer .footer_mid .container_footer_mid .article_2 .line {
