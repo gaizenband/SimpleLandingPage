@@ -14,23 +14,26 @@ function initCarouselIndicators() {
 }
 
 function sliding() {
-    let slider = document.querySelector(".header");
-    let bg = document.querySelector(".bg");
-    let sliderWidth = slider.offsetWidth;
-    let slideeHeight = slider.offsetHeight;
-    let bgMovement = 40;
-
-    slider.addEventListener("mousemove", (event) => {
-    movement(event);
-    });
-    function movement(event) {
-    let mouseX = Math.floor(
-        -(event.offsetX - sliderWidth / 2) * (bgMovement / sliderWidth)
-    );
-    let mouseY = Math.floor(
-        -(event.offsetY - slideeHeight / 2) * (bgMovement / slideeHeight)
-    );
-    bg.style.transform = `translate(${mouseX}px,${mouseY}px)`;
+$window = $(window);
+    if ($window.width() > 1023) {
+        let slider = document.querySelector(".header");
+        let bg = document.querySelector(".bg");
+        let sliderWidth = slider.offsetWidth;
+        let slideeHeight = slider.offsetHeight;
+        let bgMovement = 40;
+    
+        slider.addEventListener("mousemove", (event) => {
+        movement(event);
+        });
+        function movement(event) {
+        let mouseX = Math.floor(
+            -(event.offsetX - sliderWidth / 2) * (bgMovement / sliderWidth)
+        );
+        let mouseY = Math.floor(
+            -(event.offsetY - slideeHeight / 2) * (bgMovement / slideeHeight)
+        );
+        bg.style.transform = `translate(${mouseX}px,${mouseY}px)`;
+        }
     }
 }   
 
